@@ -1,0 +1,261 @@
+/* Dark Mode Styles */
+:root {
+    /* Light mode colors */
+    --bg-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f8f9fa;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-light: #ffffff;
+    --header-bg: rgba(255, 255, 255, 0.95);
+    --header-bg-scrolled: rgba(255, 255, 255, 0.98);
+    --card-bg: #ffffff;
+    --border-color: rgba(255, 255, 255, 0.3);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+    --tech-tag-bg: #e9ecef;
+    --tech-tag-text: #495057;
+    --footer-bg: #333333;
+    --logo-color: #667eea;
+    --nav-link-color: #333333;
+    --nav-link-hover: #667eea;
+    --section-title-color: #333333;
+    --about-text-color: #666666;
+    --project-title-color: #333333;
+    --project-desc-color: #666666;
+    --contact-text-color: #666666;
+}
+
+[data-theme="dark"] {
+    /* Dark mode colors */
+    --bg-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --bg-secondary: #1e1e2e;
+    --bg-tertiary: #2a2a3e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-light: #ffffff;
+    --header-bg: rgba(30, 30, 46, 0.95);
+    --header-bg-scrolled: rgba(30, 30, 46, 0.98);
+    --card-bg: #2a2a3e;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --shadow-hover: rgba(0, 0, 0, 0.4);
+    --tech-tag-bg: #3a3a4e;
+    --tech-tag-text: #c0c0c0;
+    --footer-bg: #1a1a2e;
+    --logo-color: #7c3aed;
+    --nav-link-color: #e0e0e0;
+    --nav-link-hover: #7c3aed;
+    --section-title-color: #e0e0e0;
+    --about-text-color: #b0b0b0;
+    --project-title-color: #e0e0e0;
+    --project-desc-color: #b0b0b0;
+    --contact-text-color: #b0b0b0;
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: var(--tech-tag-bg);
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    margin-left: 20px;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.05);
+}
+
+.dark-mode-toggle::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background: var(--text-light);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.dark-mode-toggle::after {
+    content: '☀️';
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+[data-theme="dark"] .dark-mode-toggle::before {
+    transform: translateX(30px);
+}
+
+[data-theme="dark"] .dark-mode-toggle::after {
+    content: '🌙';
+    left: 38px;
+    opacity: 1;
+}
+
+/* Update existing styles to use CSS variables */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+header {
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px var(--shadow-color);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--logo-color);
+    transition: color 0.3s ease;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--nav-link-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--nav-link-hover);
+}
+
+.hero {
+    padding: 120px 0 80px;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.about {
+    background: var(--bg-secondary);
+    padding: 80px 0;
+    transition: background 0.3s ease;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--section-title-color);
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--about-text-color);
+    transition: color 0.3s ease;
+}
+
+.projects {
+    background: var(--bg-tertiary);
+    padding: 80px 0;
+    transition: background 0.3s ease;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px var(--shadow-hover);
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--project-title-color);
+    transition: color 0.3s ease;
+}
+
+.project-description {
+    color: var(--project-desc-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.tech-tag {
+    background: var(--tech-tag-bg);
+    color: var(--tech-tag-text);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.contact {
+    background: var(--bg-secondary);
+    padding: 80px 0;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.contact-text {
+    font-size: 1.1rem;
+    color: var(--contact-text-color);
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+}
+
+footer {
+    background: var(--footer-bg);
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem 0;
+    transition: background 0.3s ease;
+}
+
+/* Smooth transitions for all theme-dependent elements */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Update header scroll effect for dark mode */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .dark-mode-toggle {
+        margin-left: 10px;
+    }
+}
+
+/* Animation for theme transition */
+.theme-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
